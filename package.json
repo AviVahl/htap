@@ -1,6 +1,6 @@
 {
   "name": "htap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple function to work with paths in a cross-platform manner.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
