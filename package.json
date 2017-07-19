@@ -26,5 +26,9 @@
   "author": {
     "name": "Avi Vahl",
     "url": "https://github.com/AviVahl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AviVahl/htap.git"
   }
 }
