@@ -1,4 +1,5 @@
 # htap
+[![Build Status](https://travis-ci.org/AviVahl/htap.svg?branch=master)](https://travis-ci.org/AviVahl/htap)
 
 A simple function to work with paths in a cross-platform manner.
 
@@ -54,3 +55,133 @@ Source is strictly-typed using TypeScript, fully-tested using Mocha and Chai, an
 ## License
 
 MIT
+
+## Expected behavior
+
+```
+  htap
+    √ htap('') => .
+    √ htap('/') => /
+    √ htap('\\') => /
+    √ htap('/\\') => /
+    √ htap('/path') => /path
+    √ htap('\\path') => /path
+    √ htap('/\\path') => /path
+    √ htap('/path/') => /path
+    √ htap('\\path\\') => /path
+    √ htap('/\\path/\\') => /path
+    √ htap('/some/path') => /some/path
+    √ htap('\\some\\path') => /some/path
+    √ htap('/\\some/\\path') => /some/path
+    √ htap('c') => c
+    √ htap('c:') => c:
+    √ htap('c:/') => c:
+    √ htap('c:\\') => c:
+    √ htap('c:/\\') => c:
+    √ htap('c:/path') => c:/path
+    √ htap('c:\\path') => c:/path
+    √ htap('c:/\\path') => c:/path
+    √ htap('c:/path/') => c:/path
+    √ htap('c:\\path\\') => c:/path
+    √ htap('c:/\\path/\\') => c:/path
+    √ htap('c:/some/path/') => c:/some/path
+    √ htap('c:\\some\\path\\') => c:/some/path
+    √ htap('c:/\\some/\\path/\\') => c:/some/path
+    √ htap('c:\\temp\\new') => c:/temp/new
+    √ htap('.') => .
+    √ htap('./') => .
+    √ htap('.\\') => .
+    √ htap('./\\') => .
+    √ htap('./path') => ./path
+    √ htap('.\\path') => ./path
+    √ htap('./\\path') => ./path
+    √ htap('./path/') => ./path
+    √ htap('.\\path\\') => ./path
+    √ htap('./\\path/\\') => ./path
+    √ htap('..') => ..
+    √ htap('../') => ..
+    √ htap('..\\') => ..
+    √ htap('../\\') => ..
+    √ htap('../path') => ../path
+    √ htap('..\\path') => ../path
+    √ htap('../\\path') => ../path
+    √ htap('../path/') => ../path
+    √ htap('..\\path\\') => ../path
+    √ htap('../\\path/\\') => ../path
+    √ htap('../../path') => ../../path
+    √ htap('..\\..\\path') => ../../path
+    √ htap('../\\../\\path') => ../../path
+    √ htap('./..') => ..
+    √ htap('.\\..') => ..
+    √ htap('./\\..') => ..
+    √ htap('../.') => ..
+    √ htap('..\\.') => ..
+    √ htap('../\\.') => ..
+    √ htap('./../') => ..
+    √ htap('.\\..\\') => ..
+    √ htap('./\\../\\') => ..
+    √ htap('../././..') => ../..
+    √ htap('..\\.\\.\\..') => ../..
+    √ htap('../\\./\\./\\..') => ../..
+    √ htap('/../..') => ../..
+    √ htap('\\..\\..') => ../..
+    √ htap('/\\../\\..') => ../..
+    √ htap('/../../') => ../..
+    √ htap('\\..\\..\\') => ../..
+    √ htap('/\\../\\../\\') => ../..
+    √ htap('../../') => ../..
+    √ htap('..\\..\\') => ../..
+    √ htap('../\\../\\') => ../..
+    √ htap('/some', './file') => /some/file
+    √ htap('\\some', '.\\file') => /some/file
+    √ htap('/\\some', './\\file') => /some/file
+    √ htap('/usr/local', '/root/bin') => /usr/local/root/bin
+    √ htap('\\usr\\local', '\\root\\bin') => /usr/local/root/bin
+    √ htap('/\\usr/\\local', '/\\root/\\bin') => /usr/local/root/bin
+    √ htap('/some/path', '../file') => /some/file
+    √ htap('\\some\\path', '..\\file') => /some/file
+    √ htap('/\\some/\\path', '../\\file') => /some/file
+    √ htap('/some/../path', './to/a/../file') => /path/to/file
+    √ htap('\\some\\..\\path', '.\\to\\a\\..\\file') => /path/to/file
+    √ htap('/\\some/\\../\\path', './\\to/\\a/\\../\\file') => /path/to/file
+    √ htap('/some', '..') => /
+    √ htap('\\some', '..') => /
+    √ htap('/\\some', '..') => /
+    √ htap('/some', '../..') => ..
+    √ htap('\\some', '..\\..') => ..
+    √ htap('/\\some', '../\\..') => ..
+    √ htap('some/path', '..') => some
+    √ htap('some\\path', '..') => some
+    √ htap('some/\\path', '..') => some
+    √ htap('some/path', '../../') => .
+    √ htap('some\\path', '..\\..\\') => .
+    √ htap('some/\\path', '../\\../\\') => .
+    √ htap('some/path', '../../..') => ..
+    √ htap('some\\path', '..\\..\\..') => ..
+    √ htap('some/\\path', '../\\../\\..') => ..
+    √ htap('some/path', '/..') => some
+    √ htap('some\\path', '\\..') => some
+    √ htap('some/\\path', '/\\..') => some
+    √ htap('some/path', 'folder/file') => some/path/folder/file
+    √ htap('some\\path', 'folder\\file') => some/path/folder/file
+    √ htap('some/\\path', 'folder/\\file') => some/path/folder/file
+    √ htap('some/path', '../folder/file') => some/folder/file
+    √ htap('some\\path', '..\\folder\\file') => some/folder/file
+    √ htap('some/\\path', '../\\folder/\\file') => some/folder/file
+    √ htap('some/path', '../../folder/file') => folder/file
+    √ htap('some\\path', '..\\..\\folder\\file') => folder/file
+    √ htap('some/\\path', '../\\../\\folder/\\file') => folder/file
+    √ htap('path') => path
+    √ htap('path/') => path
+    √ htap('path\\') => path
+    √ htap('path/\\') => path
+    √ htap('some/path') => some/path
+    √ htap('some\\path') => some/path
+    √ htap('some/\\path') => some/path
+    √ htap('some/path/') => some/path
+    √ htap('some\\path\\') => some/path
+    √ htap('some/\\path/\\') => some/path
+    √ htap('some', '..') => .
+
+  122 passing
+  ```
