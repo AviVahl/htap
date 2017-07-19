@@ -1,0 +1,30 @@
+{
+  "name": "htap",
+  "version": "1.0.0",
+  "description": "A simple function to work with paths in a cross-platform manner.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register src/index.spec.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.1",
+    "@types/mocha": "^2.2.41",
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "ts-node": "^3.2.0",
+    "typescript": "^2.4.1"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/index.js.map",
+    "lib/index.d.ts",
+    "src/index.ts"
+  ],
+  "author": {
+    "name": "Avi Vahl",
+    "url": "https://github.com/AviVahl"
+  }
+}
