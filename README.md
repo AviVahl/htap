@@ -1,5 +1,7 @@
 # htap
+[![npm version](https://badge.fury.io/js/htap.svg)](https://www.npmjs.com/package/htap)
 [![Build Status](https://travis-ci.org/AviVahl/htap.svg?branch=master)](https://travis-ci.org/AviVahl/htap)
+
 
 A simple function to work with paths in a cross-platform manner.
 
