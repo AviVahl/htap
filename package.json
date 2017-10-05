@@ -10,12 +10,12 @@
     "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register src/index.spec.ts"
   },
   "devDependencies": {
-    "@types/chai": "^4.0.3",
-    "@types/mocha": "^2.2.41",
-    "chai": "^4.1.1",
-    "mocha": "^3.5.0",
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.0",
     "ts-node": "^3.3.0",
-    "typescript": "^2.4.2"
+    "typescript": "^2.5.3"
   },
   "files": [
     "lib/index.js",
